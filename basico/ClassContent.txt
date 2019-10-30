@@ -1,0 +1,67 @@
+Selectors:
+Id:
+By.id("firstname")
+Name:
+By.name("city")
+Css Selector:
+<input type="text" id="fistname" name="first_name" class="myForm">
+css=input[name='first_name']
+css="input#firstname" or just css="#firstname“
+css="input.myForm" or just css=".myForm"
+Xpath:
+By.xpath("//span[contains(text(),'Add to cart')]"))
+//*[@id='Reference']/td[2]/a
+//*[@id='Reference']//a[@class="Link"]
+//*[@id='Reference']//a[text()='Reference data']
+//*[@id='loadingIcon' and @class='loading']
+//*[@id='RTABLE']/div/table//span[contains(text(),'free gift')]
+
+
+Alguns comandos:
+
+Mouse over:
+ WebElement we = navegador.findElement(By.xpath("//*[@alt='Faded Short Sleeve T-shirts']"));
+ action.moveToElement(we).moveToElement(navegador.findElement(By.xpath("//span[contains(text(),'Add to cart')]"))).click().build().perform();
+
+
+navegador.findElement(By.id("id_country")).click();
+navegador.findElement(By.name("search_query")).sendKeys("T-shirt");
+navegador.findElement(By.xpath("//*[@id='layer_cart']//span[@class='cross']//following-sibling::h2//*[@class='icon-ok']")).isDisplayed();
+
+ WebElement Message =  navegador.findElement(By.xpath("//*[@id='header']//a[@class='login']"));
+ String usuarioLogado = Message.getText();
+
+
+Esperas:
+
+Sleep:
+Thread.sleep(5000);
+
+
+Espera implicita:
+navegador.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+
+Espera explicita:
+WebDriver driver = new FirefoxDriver();
+WebDriverWait wait = new WebDriverWait(driver, 10);
+wait.until(ExpectedConditions.presenceOfElementLocatedBy(By.id("password")));
+
+Validação:
+
+Assert equals:
+ WebElement Message =  navegador.findElement(By.xpath("//*[@id='header']//a[@class='account']"));
+ String usuarioLogado = Message.getText();
+ assertEquals("Joao da Silva", usuarioLogado);
+
+Element is displayed:
+String usuarioLogado = Joao da Silva;       navegador.findElement(By.xpath("//*[@id='header']//span[contains(text(),'"+usuarioLogado+"')]")).isDisplayed();
+
+Referências:
+-http://automationpractice.com/index.php
+-https://www.w3schools.com/xml/xpath_intro.asp
+-https://www.testingexcellence.com/css-selectors-selenium-webdriver/
+-https://www.softwaretestinghelp.com/selenium-webdriver-commands-selenium-tutorial-17/
+
+
+
